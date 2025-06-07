@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                <div class="moon">
+                    <div class="star star1"></div>
+                    <div class="star star2"></div>
+                    <div class="star star3"></div>
+                </div>
+                <h1 class="title">Eid AL-Adha Mubarak</h1>
+                <!-- <h4 class="title">From Saddam and Family</h4> -->
+                <div class="lanterns">
+                    <div class="lantern lantern1"></div>
+                    <div class="lantern lantern2"></div>
+                    <div class="lantern lantern3"></div>
+                </div>
+                <p class="subtitle">Click to open</p>
+            </div>
+            <div class="card-back">
+                <div class="content">
+                    <h2>Eid Mubarak!</h2>
+                    <p>May the blessings of Allah fill your life with happiness, peace, and prosperity.</p>
+                    <p>Wishing you and your family a joyous celebration.</p>
+                    <p>With gratitude,</p>
+                    <p id="sender-name" style="font-weight: 600; color: #d4af37;">Saddam and Family!</p>
+                    <div class="decoration"></div>
+                    <a href="https://www.wordscompare.com" class="website-link" target="_blank">Visit Words Compare</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="customization-panel">
+        <h3>Customize Your Card</h3>
+        <div class="form-group">
+            <label for="name-input">Your Name:</label>
+            <input type="text" id="name-input" placeholder="Enter your name">
+        </div>
+        <button id="update-btn">Update Card</button>
+        <div class="share-section">
+            <p>Share your customized card:</p>
+            <input type="text" id="share-url" readonly>
+            <button id="copy-btn">Copy Link</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0d4a15, #1a7431);
+    overflow: hidden;
+}
+
+.card {
+    width: 320px;
+    height: 450px;
+    perspective: 1000px;
+    margin: 20px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.card-front {
+    background: linear-gradient(145deg, #0d8c3e, #006400);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.card-back {
+    background: linear-gradient(145deg, #f8f9fa, #e9f5e9);
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.title {
+    font-family: 'Amiri', serif;
+    font-size: 3rem;
+    margin: 20px 0;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: glow 2s infinite alternate;
+}
+
+.subtitle {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    animation: pulse 1.5s infinite;
+}
+
+.moon {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.star {
+    position: absolute;
+    background-color: #fff;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.star1 {
+    width: 20px;
+    height: 20px;
+    top: -30px;
+    left: 30px;
+    animation: twinkle 2s infinite alternate;
+}
+
+.star2 {
+    width: 15px;
+    height: 15px;
+    top: 10px;
+    left: -25px;
+    animation: twinkle 3s infinite alternate 0.5s;
+}
+
+.star3 {
+    width: 18px;
+    height: 18px;
+    top: 10px;
+    right: -25px;
+    animation: twinkle 2.5s infinite alternate 1s;
+}
+
+.lanterns {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.lantern {
+    width: 30px;
+    height: 45px;
+    background: linear-gradient(to bottom, #ffcc33, #ff9933);
+    border-radius: 5px;
+    position: relative;
+}
+
+.lantern:before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    background-color: #ffcc33;
+    top: -5px;
+    left: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.lantern1 {
+    animation: swing 3s infinite alternate;
+}
+
+.lantern2 {
+    animation: swing 3s infinite alternate 0.5s;
+}
+
+.lantern3 {
+    animation: swing 3s infinite alternate 1s;
+}
+
+.content {
+    text-align: center;
+    color: #333;
+}
+
+.content h2 {
+    font-family: 'Amiri', serif;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #006400;
+}
+
+.content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.decoration {
+    height: 20px;
+    background-image: linear-gradient(90deg, transparent, #006400, transparent);
+    margin: 25px 0;
+    opacity: 0.5;
+}
+
+.website-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #006400;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 100, 0, 0.3);
+}
+
+.website-link:hover {
+    background-color: #008000;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0, 100, 0, 0.4);
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00ff00, 0 0 20px #00ff00;
+    }
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00ff00, 0 0 40px #00ff00;
+    }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+@keyframes twinkle {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+@keyframes swing {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+@media (max-width: 400px) {
+    .card {
+        width: 280px;
+        height: 400px;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Add to the end of your existing CSS file */
+.customization-panel {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    z-index: 100;
+    color: #333;
+    border: 2px solid #006400;
+}
+
+.customization-panel h3 {
+    margin-top: 0;
+    color: #006400;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Raleway', sans-serif;
+}
+
+button {
+    background-color: #006400;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #008000;
+}
+
+.share-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.share-section p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#share-url {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+}
+
+#copy-btn {
+    width: 100%;
+}
+
+/* Update the mobile media query section for better alignment */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        max-width: 400px;
+        height: 560px;
+        margin: 20px auto;
+    }
+
+    .customization-panel {
+        position: static;
+        margin: 10px auto;
+        padding: 10px;
+        max-width: 80%;
+    }
+    
+    .form-group {
+        margin-bottom: 8px;
+    }
+    
+    .form-group label {
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+    }
+    
+    .form-group input,
+    #share-url,
+    #update-btn,
+    #copy-btn {
+        max-width: 240px;
+        padding: 6px;
+        font-size: 0.9rem;
+    }
+    
+    .share-section {
+        margin-top: 8px;
+        padding-top: 8px;
+    }
+    
+    body {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .card {
+        width: 95%;
+        height: 520px;
+    }
+    
+    .customization-panel {
+        padding: 8px;
+        margin: 10px auto;
+    }
+    
+    .customization-panel h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    
+    .form-group input,
+    #share-url,
+    #update-btn,
+    #copy-btn {
+        max-width: 200px;
+    }
+}
+
+/* Add this to ensure proper spacing on very small screens */
+@media (max-width: 400px) {
+    .customization-panel {
+        padding: 12px;
+        margin: 15px auto;
+    }
+    
+    .customization-panel h3 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    
+    .form-group input,
+    #share-url,
+    #update-btn,
+    #copy-btn {
+        max-width: 240px;
+    }
+}
