@@ -11,7 +11,47 @@ body {
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(135deg, #0d4a15, #1a7431);
-    overflow: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    scroll-behavior: smooth;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 15px 0;
+        gap: 20px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .card {
+        margin: 0 auto;
+    }
+
+    .customization-panel {
+        position: static;
+        margin: 0 auto 20px;
+        width: 90%;
+        max-width: 400px;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* Improve touch targets for better mobile interaction */
+    .form-group input,
+    button,
+    .website-link {
+        min-height: 44px; /* Minimum touch target size */
+        touch-action: manipulation;
+    }
+
+    /* Prevent content jumping during scroll */
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
 }
 
 .card {
@@ -319,6 +359,10 @@ button:hover {
     width: 100%;
 }
 
+#update-btn{
+    width: 100%;
+}
+
 /* Update the mobile media query section for better alignment */
 @media (max-width: 768px) {
     .card {
@@ -332,7 +376,7 @@ button:hover {
         position: static;
         margin: 10px auto;
         padding: 10px;
-        max-width: 80%;
+        max-width: 70%;
     }
     
     .form-group {
